@@ -32,7 +32,7 @@ with st.sidebar:
   gender = st.selectbox('Gender', ('male', 'female'))
 
   # Create a DataFrame for the input features
-  """data = {'island': island, 
+  data = {'island': island, 
          'bill_length_mm': bill_length_mm,
          'bill_depth_mm': bill_depth_mm,
          'flipper_length_mm': flipper_length_mm,
@@ -41,5 +41,5 @@ with st.sidebar:
   input_df = pd.DataFrame(data, index=[0])
   input_penguins = pd.concat([input_df, X], axis=0)
 
-input_df
-#st.write(input_penguins)"""
+
+st.write(input_penguins)
