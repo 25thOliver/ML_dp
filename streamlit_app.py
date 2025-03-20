@@ -3,9 +3,9 @@ import numpy as np
 import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
 
-st.title('🎈 Machine Learning App')
+st.title('🤖 Machine Learning App')
 
-st.write('This app builds a machine learning model!')
+st.info('This app builds a machine learning model!')
 
 with st.expander('Data'):
   st.write('**Raw data**')
@@ -13,12 +13,12 @@ with st.expander('Data'):
   df
 
   st.write('**X**')
-  X_row = df.drop('species', axis=1)
-  X_row
+  X_raw = df.drop('species', axis=1)
+  X_raw
 
   st.write('**y**')
-  y_row = df.species
-  y_row
+  y_raw = df.species
+  y_raw
 
 with st.expander('Data visualization'):
   st.scatter_chart(data=df, x='bill_length_mm', y='body_mass_g', color='species')
@@ -41,7 +41,7 @@ with st.sidebar:
          'body_mass_g': body_mass_g,
          'sex': gender}
   input_df = pd.DataFrame(data, index=[0])
-  input_penguins = pd.concat([input_df, X_row], axis=0)
+  input_penguins = pd.concat([input_df, X_raw], axis=0)
 
 with st.expander('Input features'):
   st.write('**Input penguin**')
@@ -64,9 +64,9 @@ target_mapper = {'Adelie': 0,
 def target_encode(val):
   return target_mapper[val]
 
-y = y_row.apply(target_encode)
-y
-y_row
+y = y_raw.apply(target_encode)
+#y
+#y_row
 
 
 
