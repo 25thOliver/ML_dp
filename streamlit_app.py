@@ -55,6 +55,7 @@ def target_encode(val):
 
 y = y_row.apply(target_encode)
 y
+y_row
 
 with st.expander('Input features'):
   st.write('**Input penguin**')
